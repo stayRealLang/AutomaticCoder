@@ -1,0 +1,18 @@
+//
+//  
+//  AutomaticCoder
+//
+//  Created by lang
+//  Copyright © 2020 lang. All rights reserved.
+//
+
+
+#import <Foundation/Foundation.h>
+#import#
+
+@interface #name# : NSObject<NSCoding>
+
+#property# 
+
+
+@end

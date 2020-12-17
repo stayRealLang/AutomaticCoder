@@ -2,7 +2,7 @@
 //  AutoControlCodeWindowController.m
 //  AutomaticCoder
 //
-//  Created by zhanyun on 17/8/1.
+//  Created by lang on 17/8/1.
 //  Copyright © 2017年 me.zhangxi. All rights reserved.
 //
 

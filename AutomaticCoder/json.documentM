@@ -1,0 +1,30 @@
+//
+//  
+//  AutomaticCoder
+//
+//  Created by lang
+//  Copyright © 2020 lang. All rights reserved.
+//
+#import "#name#.h"
+
+@implementation #name#
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+
+    #encode#
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+
+    self = [super init];
+    if(self)
+    {
+        #decode#
+    }
+    return self;
+}
+
+
+@end

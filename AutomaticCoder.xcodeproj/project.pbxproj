@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		33618AF31B92BC080060B08F /* swift.temp in Resources */ = {isa = PBXBuildFile; fileRef = 33618AF21B92BC080060B08F /* swift.temp */; };
+		3C970687258AF78500501EA8 /* DocumentToModelWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */; };
+		3C970688258AF78500501EA8 /* DocumentToModelWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */; };
+		3C970698258B1A7800501EA8 /* json.documentH in Resources */ = {isa = PBXBuildFile; fileRef = 3C970696258B1A7800501EA8 /* json.documentH */; };
+		3C970699258B1A7800501EA8 /* json.documentM in Resources */ = {isa = PBXBuildFile; fileRef = 3C970697258B1A7800501EA8 /* json.documentM */; };
 		43368AA215E4AB5D006AA4F4 /* JSONPropertyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43368AA015E4AB5D006AA4F4 /* JSONPropertyWindowController.m */; };
 		43368AA315E4AB5D006AA4F4 /* JSONPropertyWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43368AA115E4AB5D006AA4F4 /* JSONPropertyWindowController.xib */; };
 		4349431A15E1D7B3006A427A /* JSONWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4349431815E1D7B3006A427A /* JSONWindowController.m */; };
@@ -27,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		33618AF21B92BC080060B08F /* swift.temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swift.temp; sourceTree = "<group>"; };
+		3C970684258AF78500501EA8 /* DocumentToModelWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentToModelWindowController.h; sourceTree = "<group>"; };
+		3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentToModelWindowController.m; sourceTree = "<group>"; };
+		3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentToModelWindowController.xib; sourceTree = "<group>"; };
+		3C970696258B1A7800501EA8 /* json.documentH */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.documentH; sourceTree = "<group>"; };
+		3C970697258B1A7800501EA8 /* json.documentM */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json.documentM; sourceTree = "<group>"; };
 		43368A9F15E4AB5D006AA4F4 /* JSONPropertyWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPropertyWindowController.h; sourceTree = "<group>"; };
 		43368AA015E4AB5D006AA4F4 /* JSONPropertyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONPropertyWindowController.m; sourceTree = "<group>"; };
 		43368AA115E4AB5D006AA4F4 /* JSONPropertyWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSONPropertyWindowController.xib; sourceTree = "<group>"; };
@@ -120,8 +129,13 @@
 				953707B41F30180600DEC6DE /* AutoControlCodeWindowController.h */,
 				953707B51F30180600DEC6DE /* AutoControlCodeWindowController.m */,
 				953707B61F30180600DEC6DE /* AutoControlCodeWindowController.xib */,
+				3C970684258AF78500501EA8 /* DocumentToModelWindowController.h */,
+				3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */,
+				3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */,
 				4349431F15E1E088006A427A /* json.zx1 */,
 				4349432015E1E088006A427A /* json.zx2 */,
+				3C970696258B1A7800501EA8 /* json.documentH */,
+				3C970697258B1A7800501EA8 /* json.documentM */,
 				33618AF21B92BC080060B08F /* swift.temp */,
 				438EDC2E15E1D08700D6B752 /* Supporting Files */,
 			);
@@ -180,6 +194,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 438EDC1815E1D08700D6B752;
@@ -202,9 +217,12 @@
 				438EDC3E15E1D08800D6B752 /* MainMenu.xib in Resources */,
 				953707B81F30180600DEC6DE /* AutoControlCodeWindowController.xib in Resources */,
 				4349431B15E1D7B3006A427A /* JSONWindowController.xib in Resources */,
+				3C970698258B1A7800501EA8 /* json.documentH in Resources */,
 				4349432115E1E088006A427A /* json.zx1 in Resources */,
 				33618AF31B92BC080060B08F /* swift.temp in Resources */,
 				4349432215E1E088006A427A /* json.zx2 in Resources */,
+				3C970688258AF78500501EA8 /* DocumentToModelWindowController.xib in Resources */,
+				3C970699258B1A7800501EA8 /* json.documentM in Resources */,
 				43368AA315E4AB5D006AA4F4 /* JSONPropertyWindowController.xib in Resources */,
 				437AAE1A15E63843005CC126 /* icons.icns in Resources */,
 			);
@@ -222,6 +240,7 @@
 				4349431A15E1D7B3006A427A /* JSONWindowController.m in Sources */,
 				43368AA215E4AB5D006AA4F4 /* JSONPropertyWindowController.m in Sources */,
 				953707B71F30180600DEC6DE /* AutoControlCodeWindowController.m in Sources */,
+				3C970687258AF78500501EA8 /* DocumentToModelWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +327,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutomaticCoder/AutomaticCoder.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5K4K8K95V5;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutomaticCoder/AutomaticCoder-Prefix.pch";
 				INFOPLIST_FILE = "AutomaticCoder/AutomaticCoder-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alilangAutomaticCoder;
 				PRODUCT_NAME = "代码自动化工具";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -327,14 +348,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutomaticCoder/AutomaticCoder.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5K4K8K95V5;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AutomaticCoder/AutomaticCoder-Prefix.pch";
 				INFOPLIST_FILE = "AutomaticCoder/AutomaticCoder-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alilangAutomaticCoder;
 				PRODUCT_NAME = "代码自动化工具";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

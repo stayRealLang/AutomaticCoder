@@ -9,11 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "JSONWindowController.h"
 #import "AutoControlCodeWindowController.h"
+#import "DocumentToModelWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
     JSONWindowController *json;
     AutoControlCodeWindowController *autoControlCodeWC;
+    DocumentToModelWindowController *docToModelWC;
+    
 }
 
 
