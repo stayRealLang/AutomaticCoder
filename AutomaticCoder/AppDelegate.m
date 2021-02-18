@@ -41,12 +41,15 @@
     autoControlCodeWC  = [[AutoControlCodeWindowController alloc] initWithWindowNibName:@"AutoControlCodeWindowController"];
     [[autoControlCodeWC window] makeKeyAndOrderFront:nil];
 }
+
 - (IBAction)docToModel:(NSButton *)sender {
     docToModelWC  = [[DocumentToModelWindowController alloc] initWithWindowNibName:@"DocumentToModelWindowController"];
     [[docToModelWC window] makeKeyAndOrderFront:nil];
 }
 
-- (IBAction)donate:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.zhangxi.me"]];
+- (IBAction)yapiFunction:(NSButton *)sender {
+    yapiFileWC = [[YApiToCodeFileController alloc] initWithWindowNibName:@"YApiToCodeFileController"];
+    [[yapiFileWC window] makeKeyAndOrderFront:nil];
 }
+
 @end

@@ -9,15 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "JSONPropertyWindowController.h"
-
-typedef enum
-{
-    kString = 0,
-    kNumber = 1,
-    kArray  = 2,
-    kDictionary = 3,
-    kBool   = 4,
-}JsonValueType;
+#import "AutomaticCoderTool.h"
 
 
 @interface JSONWindowController : NSWindowController

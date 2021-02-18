@@ -283,19 +283,19 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="134" y="256"/>
+            <point key="canvasLocation" x="134" y="-178"/>
         </menu>
         <window title="AutomaticCoder" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="227" height="273"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+            <rect key="contentRect" x="335" y="390" width="227" height="348"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1097"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="227" height="273"/>
+                <rect key="frame" x="0.0" y="0.0" width="227" height="348"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="536">
-                        <rect key="frame" x="29" y="191" width="169" height="64"/>
+                        <rect key="frame" x="29" y="266" width="169" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="59" id="538"/>
                             <constraint firstAttribute="width" constant="165" id="542"/>
@@ -309,7 +309,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="CMh-nZ-9Us">
-                        <rect key="frame" x="29" y="112" width="169" height="64"/>
+                        <rect key="frame" x="29" y="187" width="169" height="64"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="59" id="31l-Fn-O3m"/>
                             <constraint firstAttribute="width" constant="165" id="VRX-mf-wMn"/>
@@ -323,7 +323,7 @@
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="tdq-lV-NVJ">
-                        <rect key="frame" x="29" y="33" width="169" height="64"/>
+                        <rect key="frame" x="29" y="108" width="169" height="64"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="165" id="hgI-pQ-5ZJ"/>
                             <constraint firstAttribute="height" constant="59" id="r6a-MF-smc"/>
@@ -336,17 +336,33 @@
                             <action selector="docToModel:" target="494" id="s4k-kv-Ymv"/>
                         </connections>
                     </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="YXI-Kv-xVN">
+                        <rect key="frame" x="29" y="29" width="169" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="165" id="Gj7-XO-SH7"/>
+                            <constraint firstAttribute="height" constant="59" id="lHm-8h-2hF"/>
+                        </constraints>
+                        <buttonCell key="cell" type="bevel" title="Yapi文档" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WIH-HY-Fxt">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system" size="10"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="yapiFunction:" target="494" id="moh-Uu-3Jp"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="536" firstAttribute="top" secondItem="372" secondAttribute="top" constant="20" symbolic="YES" id="573"/>
                     <constraint firstItem="CMh-nZ-9Us" firstAttribute="top" secondItem="536" secondAttribute="bottom" constant="20" id="14n-4y-eda"/>
+                    <constraint firstItem="YXI-Kv-xVN" firstAttribute="top" secondItem="tdq-lV-NVJ" secondAttribute="bottom" constant="20" id="2wm-pj-MhY"/>
                     <constraint firstItem="CMh-nZ-9Us" firstAttribute="centerX" secondItem="372" secondAttribute="centerX" id="I49-3f-2I4"/>
+                    <constraint firstItem="YXI-Kv-xVN" firstAttribute="centerX" secondItem="536" secondAttribute="centerX" id="adR-HY-Ipb"/>
                     <constraint firstItem="tdq-lV-NVJ" firstAttribute="top" secondItem="CMh-nZ-9Us" secondAttribute="bottom" constant="20" id="lUD-OD-Ki8"/>
                     <constraint firstItem="536" firstAttribute="centerX" secondItem="372" secondAttribute="centerX" id="qOL-Gq-3Uk"/>
                     <constraint firstItem="tdq-lV-NVJ" firstAttribute="centerX" secondItem="536" secondAttribute="centerX" id="xGy-gT-9pp"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="134.5" y="51.5"/>
+            <point key="canvasLocation" x="134.5" y="89"/>
         </window>
         <customObject id="494" customClass="AppDelegate">
             <connections>

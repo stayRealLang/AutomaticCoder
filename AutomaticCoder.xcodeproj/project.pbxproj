@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		33618AF31B92BC080060B08F /* swift.temp in Resources */ = {isa = PBXBuildFile; fileRef = 33618AF21B92BC080060B08F /* swift.temp */; };
+		3C844A5E25DCB9EB004B7E7B /* YApiToCodeFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C844A5C25DCB9EB004B7E7B /* YApiToCodeFileController.m */; };
+		3C844A5F25DCB9EB004B7E7B /* YApiToCodeFileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C844A5D25DCB9EB004B7E7B /* YApiToCodeFileController.xib */; };
+		3C844A6325DE50C2004B7E7B /* NSDictionary+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C844A6225DE50C2004B7E7B /* NSDictionary+Json.m */; };
+		3C844A6725DE7463004B7E7B /* AutomaticCoderTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C844A6625DE7463004B7E7B /* AutomaticCoderTool.m */; };
 		3C970687258AF78500501EA8 /* DocumentToModelWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */; };
 		3C970688258AF78500501EA8 /* DocumentToModelWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */; };
 		3C970698258B1A7800501EA8 /* json.documentH in Resources */ = {isa = PBXBuildFile; fileRef = 3C970696258B1A7800501EA8 /* json.documentH */; };
@@ -31,6 +35,13 @@
 
 /* Begin PBXFileReference section */
 		33618AF21B92BC080060B08F /* swift.temp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swift.temp; sourceTree = "<group>"; };
+		3C844A5B25DCB9EB004B7E7B /* YApiToCodeFileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YApiToCodeFileController.h; sourceTree = "<group>"; };
+		3C844A5C25DCB9EB004B7E7B /* YApiToCodeFileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YApiToCodeFileController.m; sourceTree = "<group>"; };
+		3C844A5D25DCB9EB004B7E7B /* YApiToCodeFileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YApiToCodeFileController.xib; sourceTree = "<group>"; };
+		3C844A6125DE50C2004B7E7B /* NSDictionary+Json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Json.h"; sourceTree = "<group>"; };
+		3C844A6225DE50C2004B7E7B /* NSDictionary+Json.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Json.m"; sourceTree = "<group>"; };
+		3C844A6525DE7463004B7E7B /* AutomaticCoderTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutomaticCoderTool.h; sourceTree = "<group>"; };
+		3C844A6625DE7463004B7E7B /* AutomaticCoderTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutomaticCoderTool.m; sourceTree = "<group>"; };
 		3C970684258AF78500501EA8 /* DocumentToModelWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentToModelWindowController.h; sourceTree = "<group>"; };
 		3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentToModelWindowController.m; sourceTree = "<group>"; };
 		3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentToModelWindowController.xib; sourceTree = "<group>"; };
@@ -132,12 +143,19 @@
 				3C970684258AF78500501EA8 /* DocumentToModelWindowController.h */,
 				3C970685258AF78500501EA8 /* DocumentToModelWindowController.m */,
 				3C970686258AF78500501EA8 /* DocumentToModelWindowController.xib */,
+				3C844A5B25DCB9EB004B7E7B /* YApiToCodeFileController.h */,
+				3C844A5C25DCB9EB004B7E7B /* YApiToCodeFileController.m */,
+				3C844A5D25DCB9EB004B7E7B /* YApiToCodeFileController.xib */,
 				4349431F15E1E088006A427A /* json.zx1 */,
 				4349432015E1E088006A427A /* json.zx2 */,
 				3C970696258B1A7800501EA8 /* json.documentH */,
 				3C970697258B1A7800501EA8 /* json.documentM */,
 				33618AF21B92BC080060B08F /* swift.temp */,
 				438EDC2E15E1D08700D6B752 /* Supporting Files */,
+				3C844A6125DE50C2004B7E7B /* NSDictionary+Json.h */,
+				3C844A6225DE50C2004B7E7B /* NSDictionary+Json.m */,
+				3C844A6525DE7463004B7E7B /* AutomaticCoderTool.h */,
+				3C844A6625DE7463004B7E7B /* AutomaticCoderTool.m */,
 			);
 			path = AutomaticCoder;
 			sourceTree = "<group>";
@@ -218,6 +236,7 @@
 				953707B81F30180600DEC6DE /* AutoControlCodeWindowController.xib in Resources */,
 				4349431B15E1D7B3006A427A /* JSONWindowController.xib in Resources */,
 				3C970698258B1A7800501EA8 /* json.documentH in Resources */,
+				3C844A5F25DCB9EB004B7E7B /* YApiToCodeFileController.xib in Resources */,
 				4349432115E1E088006A427A /* json.zx1 in Resources */,
 				33618AF31B92BC080060B08F /* swift.temp in Resources */,
 				4349432215E1E088006A427A /* json.zx2 in Resources */,
@@ -236,8 +255,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				438EDC3415E1D08700D6B752 /* main.m in Sources */,
+				3C844A6725DE7463004B7E7B /* AutomaticCoderTool.m in Sources */,
 				438EDC3B15E1D08700D6B752 /* AppDelegate.m in Sources */,
+				3C844A6325DE50C2004B7E7B /* NSDictionary+Json.m in Sources */,
 				4349431A15E1D7B3006A427A /* JSONWindowController.m in Sources */,
+				3C844A5E25DCB9EB004B7E7B /* YApiToCodeFileController.m in Sources */,
 				43368AA215E4AB5D006AA4F4 /* JSONPropertyWindowController.m in Sources */,
 				953707B71F30180600DEC6DE /* AutoControlCodeWindowController.m in Sources */,
 				3C970687258AF78500501EA8 /* DocumentToModelWindowController.m in Sources */,
