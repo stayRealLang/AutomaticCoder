@@ -27,4 +27,25 @@
     return kString;
 }
 
+
++ (NSString *)typeNameWithType:(JsonValueType)type {
+    switch (type) {
+        case kString:
+            return @"NSString";
+            break;
+        case kNumber:
+            return @"NSNumber";
+            break;
+        case kBool:
+            return @"BOOL";
+            break;
+        case kArray:
+        case kDictionary:
+            return @"";
+            break;
+        default:
+            break;
+    }
+}
+
 @end

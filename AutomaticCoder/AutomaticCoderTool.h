@@ -23,8 +23,14 @@ typedef enum
 @interface AutomaticCoderTool : NSObject
 
 
+/// YApi根据type字符串获取类型
+/// @param typeStr type字符串
 + (JsonValueType)getTypeByYApiTypeString:(NSString *)typeStr;
 
+
+/// 根据类型获取类型名称，如NSString等
+/// @param type JsonValueType类型
++ (NSString *)typeNameWithType:(JsonValueType)type;
 
 @end
 
