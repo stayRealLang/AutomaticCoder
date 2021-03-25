@@ -12,7 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YApiToCodeFileController : NSWindowController
-
+{
+    NSString *savePath;
+}
 @end
 
 NS_ASSUME_NONNULL_END
