@@ -4,6 +4,7 @@
 //
 //  Created by 自动代码生成器
 //
+
 #import "#name#.h"
 
 @implementation #name#

@@ -55,7 +55,10 @@
     NSInteger selectIndex = _tableView.selectedRowIndexes.firstIndex;
     NSDictionary *sectionDic = _dataArray[selectIndex];
     NSLog(@"%@",sectionDic[@"name"]);
-    [self anlysJson:sectionDic];
+    if (sectionDic) {
+        [self anlysJson:sectionDic];
+        
+    }
     
 }
 
@@ -122,16 +125,22 @@
         //列表数据
         NSDictionary *itemsDic = dataPro[@"list"][@"items"];
         NSString *fileName = [NSString stringWithFormat:@"DSL%@ListModel",name];
-        [self createClass:fileName forDic:itemsDic];
+        [self createClass:fileName forDic:itemsDic inFolder:name];
 
     }else{
         //
         NSString *fileName = [NSString stringWithFormat:@"DSL%@Model",name];
-        [self createClass:fileName forDic:data];
+        [self createClass:fileName forDic:data inFolder:name];
 
     }
 }
--(void)createClass:(NSString *)name forDic:(NSDictionary *)json {
+
+
+/// 创建类文件方法，返回值表示最后是否创建
+/// @param name 文件名
+/// @param json 解析的json数据
+/// @param folderPath 文件夹名称
+-(BOOL)createClass:(NSString *)name forDic:(NSDictionary *)json inFolder:(NSString *)folderPath{
     
     
     
@@ -146,11 +155,13 @@
         NSMutableString *templateH =[[NSMutableString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"json" ofType:@"documentH"] encoding:NSUTF8StringEncoding error:nil];
         NSMutableString *templateM =[[NSMutableString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"json" ofType:@"documentM"] encoding:NSUTF8StringEncoding error:nil];
 
-        //.h
-        //name
-        //property
+        //.h文件
         NSMutableString *proterty = [NSMutableString string];
         NSMutableString *import = [NSMutableString string];
+        
+        //.m文件
+        NSMutableString *encode = [NSMutableString string];
+        NSMutableString *decode = [NSMutableString string];
         
         //属性
         NSDictionary *properties = json[@"properties"];
@@ -158,8 +169,10 @@
             //key   merchantExt
             //valueDic    {"type":"object","properties":{...}}
             NSDictionary *subDic = properties[subKey];
-            [proterty appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic].firstObject];
-            [import appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic].lastObject];
+            [proterty appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic  inFolder:folderPath].firstObject];
+            [import appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic inFolder:folderPath][1]];
+            [encode appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic  inFolder:folderPath][2]];
+            [decode appendFormat:@"%@", [self getFileInfoWithKey:subKey subDic:subDic  inFolder:folderPath][3]];
         }
         
         [templateH replaceOccurrencesOfString:@"#name#"
@@ -175,22 +188,53 @@
                                       options:NSCaseInsensitiveSearch
                                         range:NSMakeRange(0, templateH.length)];
         
-        [templateH writeToFile:[NSString stringWithFormat:@"%@/%@.h",savePath,name]
+        //修改.m模板
+        [templateM replaceOccurrencesOfString:@"#name#"
+                                   withString:name
+                                      options:NSCaseInsensitiveSearch
+                                        range:NSMakeRange(0, templateM.length)];
+        
+        NSDictionary *replaceList =  @{
+                                @"encode":encode,
+                                @"decode":decode
+                                };
+        for(NSString *key in [replaceList allKeys]){
+            
+            [templateM replaceOccurrencesOfString:[NSString stringWithFormat:@"#%@#",key]
+                                       withString:[replaceList objectForKey:key]
+                                          options:NSCaseInsensitiveSearch
+                                            range:NSMakeRange(0, templateM.length)];
+            
+        }
+        
+        NSString *dirPath = [NSString stringWithFormat:@"%@/%@",savePath,folderPath];
+        BOOL isDir;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL existed = [fileManager fileExistsAtPath:dirPath isDirectory:&isDir];
+
+        if (!(isDir == YES && existed == YES)){
+            [fileManager createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+
+        
+        [templateH writeToFile:[NSString stringWithFormat:@"%@/%@.h",dirPath,name]
                     atomically:NO
                       encoding:NSUTF8StringEncoding
                          error:nil];
-        //.m文件
-        
-        
+        [templateM writeToFile:[NSString stringWithFormat:@"%@/%@.m",dirPath,name]
+                    atomically:NO
+                      encoding:NSUTF8StringEncoding
+                         error:nil];
+        return YES;
     }else if (type == kArray) {
         //属性
         NSDictionary *items = json[@"items"];
-        [self createClass:name forDic:items];
+        return [self createClass:name forDic:items inFolder:folderPath];
     }
-    
+    return NO;
 }
 
-- (NSArray *)getFileInfoWithKey:(NSString *)key subDic:(NSDictionary *)subDic {
+- (NSArray *)getFileInfoWithKey:(NSString *)key subDic:(NSDictionary *)subDic inFolder:(NSString *)folderPath{
     
     NSString *subTypeStr = subDic[@"type"];
     JsonValueType subType = [AutomaticCoderTool getTypeByYApiTypeString:subTypeStr];
@@ -201,6 +245,9 @@
     
     NSString *propertyString = @"";
     NSString *importString = @"";
+    
+    NSString *encode = @"";
+    NSString *decode = @"";
     
     switch (subType) {
         case kString:
@@ -214,8 +261,11 @@
         {
             NSString *fileName = [NSString stringWithFormat:@"%@Entity",[key capitalizedString]];
             propertyString = [NSString stringWithFormat:@"@property (nonatomic,strong) NSMutableArray *%@;///<%@\n" , key, description?:@"无"];
-            importString = [NSString stringWithFormat:@"#import \"%@.h\"\n",fileName];
-            [self createClass:fileName forDic:subDic];
+            BOOL isCreate = [self createClass:fileName forDic:subDic inFolder:folderPath];
+            if (isCreate) {
+                importString = [NSString stringWithFormat:@"#import \"%@.h\"\n",fileName];
+                propertyString = [NSString stringWithFormat:@"@property (nonatomic,strong) NSMutableArray<%@ *> *%@;///<%@\n", fileName, key, description?:@"无"];
+            }
         }
             break;
         case kDictionary:
@@ -223,7 +273,7 @@
             NSString *fileName = [NSString stringWithFormat:@"%@Entity",[key capitalizedString]];
             propertyString = [NSString stringWithFormat:@"@property (nonatomic,strong) %@ *%@;///<%@\n",fileName , key, description?:@"无"];
             importString = [NSString stringWithFormat:@"#import \"%@.h\"\n",fileName];
-            [self createClass:key forDic:subDic];
+            [self createClass:fileName forDic:subDic inFolder:folderPath];
         }
             break;
         case kBool:
@@ -232,8 +282,9 @@
         default:
             break;
     }
-    
-    return @[propertyString,importString];
+    encode = [NSString stringWithFormat:@"[aCoder encodeObject:self.%@ forKey:@\"zl_%@\"];\n\t",key,key];
+    decode = [NSString stringWithFormat:@"self.%@ = [aDecoder decodeObjectForKey:@\"zl_%@\"];\n\t\t",key,key];
+    return @[propertyString,importString,encode,decode];
 }
 
 #pragma mark - TableView Delegate
