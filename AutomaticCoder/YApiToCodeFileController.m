@@ -12,9 +12,14 @@
 @interface YApiToCodeFileController ()<NSTableViewDelegate,NSTableViewDataSource>
 
 @property (weak) IBOutlet NSScrollView *dataScrollView;
+
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTableView *subTableView;
 
 @property(nonatomic, strong) NSMutableArray *dataArray;
+
+@property(nonatomic, strong) NSDictionary *selectSectionDic;
+@property(nonatomic, strong) NSDictionary *subSelectSectionDic;
 
 @end
 
@@ -25,6 +30,8 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _subTableView.delegate = self;
+    _subTableView.dataSource = self;
 }
 
 #pragma mark - Actions
@@ -52,21 +59,23 @@
 
 //创建代码文件
 - (IBAction)createCodeFile:(NSButton *)sender {
-    NSInteger selectIndex = _tableView.selectedRowIndexes.firstIndex;
-    NSDictionary *sectionDic = _dataArray[selectIndex];
-    NSLog(@"%@",sectionDic[@"name"]);
-    if (sectionDic) {
-        [self anlysJson:sectionDic];
+    
+    if (_subSelectSectionDic) {
+        [self anlysJson:@[_subSelectSectionDic]];
+    }else {
+        NSDictionary *sectionDic = _selectSectionDic;
+        NSString *sectionName = sectionDic[@"name"];
+        NSLog(@"sectionName:%@",sectionName);
+        NSArray *sectionList = sectionDic[@"list"];
         
+        [self anlysJson:sectionList];
     }
     
 }
 
 //解析json，获取需要的字段
-- (void)anlysJson:(NSDictionary *)sectionDic {
-    NSString *sectionName = sectionDic[@"name"];
-    NSLog(@"sectionName:%@",sectionName);
-    NSArray *sectionList = sectionDic[@"list"];
+- (void)anlysJson:(NSArray *)sectionList {
+    
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     panel.canChooseDirectories = YES;
     panel.canChooseFiles = NO;
@@ -289,15 +298,41 @@
 
 #pragma mark - TableView Delegate
  -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-     return _dataArray.count;
+     if (tableView == self.tableView) {
+         return _dataArray.count;
+         
+     }else {
+         return _selectSectionDic.count;
+         
+     }
  }
 
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    
+    NSTableView *tableView = notification.object;
+    if (tableView == self.tableView) {
+        _selectSectionDic = _dataArray[tableView.selectedRow];
+        [_subTableView reloadData];
+    }else {
+        _subSelectSectionDic = _selectSectionDic[@"list"][tableView.selectedRow];
+    }
+}
+
  -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-     NSDictionary *sectionDic = _dataArray[row];
-     return sectionDic[@"name"];
+     if (tableView == self.tableView) {
+         NSDictionary *sectionDic = _dataArray[row];
+         return sectionDic[@"name"];
+         
+     }else {
+         NSDictionary *singleDic = _selectSectionDic[@"list"][row];
+         return singleDic[@"title"];
+         
+     }
+     
  }
 
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
+    
     NSLog(@"didClickTableColumn");
 }
 #pragma mark - Getter
